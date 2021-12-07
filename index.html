@@ -1,17 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="style/style.css" class="src">
+
+    <link rel="stylesheet" href="style/style.css" class="src" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 </head>
+
 <body>
     <div class="container">
-    <h1>Weather Dashboard</h1>
-    <form>
-    </form>
+        <h1>Weather Dashboard</h1>
+        </br>
+
+        <!-- current city search form -->
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label type="text" class="col-form-label">Current City</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" placeholder="Paris">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Find</button>
+            </div>
+        </div>
+        <!-- end of current city search form -->
+
+        <!-- Current Temperature -->
+        <h2>Current Temperature</h2>
+        <h3>Scottsdale, AZ</h3>
+        <p>75°F</p>
+        <img src="images/sun.jpg">
+        <!-- end of current temperature -->
+
+        <!-- Five Day Forecast -->
+        <h2>5 Day Forecast</h2>
+
+        <div class="row">
+            <div class="card col-2">
+                <div class="card-body">
+                    <h5 class="card-title">Monday</h5>
+                    <p class="card-text">December 5</p>
+                    <img src="images/sun.jpg" class="card-img" alt="sunny">
+                    <p class="card-text">75°F</p>
+                </div>
+            </div>
+
+            <div class="card col-2">
+                <div class="card-body">
+                    <h5 class="card-title">Monday</h5>
+                    <p class="card-text">December 5</p>
+                    <img src="images/sun.jpg" class="card-img" alt="sunny">
+                    <p class="card-text">75°F</p>
+                </div>
+            </div>
+
+            <div class="card col-2">
+                <div class="card-body">
+                    <h5 class="card-title">Monday</h5>
+                    <p class="card-text">December 5</p>
+                    <img src="images/sun.jpg" class="card-img" alt="sunny">
+                    <p class="card-text">75°F</p>
+                </div>
+            </div>
+
+            <div class="card col-2">
+                <div class="card-body">
+                    <h5 class="card-title">Monday</h5>
+                    <p class="card-text">December 5</p>
+                    <img src="images/sun.jpg" class="card-img" alt="sunny">
+                    <p class="card-text">75°F</p>
+                </div>
+            </div>
+
+            <div class="card col-2">
+                <div class="card-body">
+                    <h5 class="card-title">Monday</h5>
+                    <p class="card-text">December 5</p>
+                    <img src="images/sun.jpg" class="card-img" alt="sunny">
+                    <p class="card-text">75°F</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- End of Five Day Forecast -->
+
+        <footer>
+            <p>Created by Natasha Harrison Murata | Dec 2021 </p>
+            <a href="https://github.com/natasharrison">GitHub</a>
+            <a href="https://www.linkedin.com/in/natasharrison/">LinkedIn</a>
+        </footer>
+
     </div>
 </body>
+
 </html>
