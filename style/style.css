@@ -1,0 +1,44 @@
+
+/* this isn't working on the body + font weight isn't working */
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h5, p {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    padding-top:  30px; 
+}
+
+h5 {
+    font-weight: 600;
+}
+
+.search-bar {
+    padding-bottom: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.current-temp {
+    border-width: thin;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.current-temp h5 {
+    padding-top: 20px;
+}
+
+.forecast {
+    padding-bottom: 30px;
+}
+
+.forecast h5, p {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}
