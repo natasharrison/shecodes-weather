@@ -6,9 +6,7 @@
 
 // Note: Please round the values in the Alert to the nearest whole number (no decimal points, e.g. 5.45 should be rounded to 5).
 
-let city = prompt("Please enter a city");
-
-let cities = [
+let weather = [
     {
         name: "New York",
         temp: 15,
@@ -26,10 +24,14 @@ let cities = [
     },
 ];
 
-if (city === "") {
+let city = prompt("Please enter a city");
+
+if ((city === "New York", "London", "Cape Town")) {
+    alert(
+        `It is currently ${Math.round(temp)} in ${city} with a humidity of ${Math.round(humidity)}`
+    );
+} else {
     alert(
         `Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${city}`
     );
-} else {
-    alert(`It is currently ${(Math.round(temp))} in ${city} with a humidity of ${(Math.round(humidity))}`);
 };
