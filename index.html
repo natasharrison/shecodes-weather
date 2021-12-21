@@ -22,17 +22,10 @@
 
         <!-- current city search form -->
         <div class="search-bar">
-            <div class="row g-3 align-items-center" id="form">
-                <div class="col-auto">
-                    <label type="text" class="col-form-label">Current City</label>
-                </div>
-                <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="Paris">
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary">Find</button>
-                </div>
-            </div>
+            <form id="search-form">
+                <input type="text" id="city-input" placeholder="Paris">
+                <input type="submit" value="Search" id="button">
+            </form>
         </div>
         <!-- end of current city search form -->
 
@@ -41,10 +34,11 @@
         <div class="current-temp">
             <div class="row">
                 <div class="card col-4 shadow">
-                    <h5 class="card-title">Scottsdale, AZ</p>
-                    <p class="card-text" id="current-time"></p>
-                    <p class="card-text">75°F</p>
-                    <img src="images/sun.jpg" class="card-img" alt="sunny" width="200">
+                    <h5 class="card-title" id="current-city"></h5>
+                        </p>
+                        <p class="card-text" id="current-time"></p>
+                        <p class="card-text">75 °C | °F</p>
+                        <img src="images/sun.jpg" class="card-img" alt="sunny" width="200">
                 </div>
             </div>
         </div>

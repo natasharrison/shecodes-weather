@@ -11,13 +11,10 @@ let days = [
   "Saturday"
 ];
 
-console.log(days[now.getDay()]);
 let currentDay = days[now.getDay()];
 
-console.log(now.getHours()); 
 let currentHour = now.getHours();
 
-console.log(now.getMinutes());
 let currentMinutes = now.getMinutes();
 
 let currentTime = document.querySelector("#current-time");
@@ -26,6 +23,17 @@ currentTime.innerHTML = `${currentDay} ${currentHour}:${currentMinutes}`;
 // 🕵️‍♀️Feature #2
 // Add a search engine, when searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
 
+function citySearch(event){
+  event.preventDefault();
+  
+  let cityInput = document.querySelector("#city-input");
+  
+  let currentCity = document.querySelector("#current-city");
+  currentCity.innerHTML = `${cityInput.value}`
+}
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", citySearch);
 
 
 // 🙀Bonus Feature
