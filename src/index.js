@@ -1,5 +1,5 @@
 // ⏰
-let now = new Date();
+function formatDate(date) {
 
 let days = [
   "Sunday",
@@ -14,11 +14,21 @@ let days = [
 let currentDay = days[now.getDay()];
 
 let currentHour = now.getHours();
+if (currentHour < 10) {
+  currentHour = `0${currentHour}`;
+}
 
 let currentMinutes = now.getMinutes();
+if (currentMinutes < 10) {
+  currentMinutes = `0${currentMinutes}`;
+}
+
+return `${currentDay} ${currentHour}:${currentMinutes}`;
+}
 
 let currentTime = document.querySelector("#current-time");
-currentTime.innerHTML = `${currentDay} ${currentHour}:${currentMinutes}`;
+let now = new Date();
+currentTime.innerHTML = formatDate(currentTime);
 
 // 🕵️‍♀️
 
