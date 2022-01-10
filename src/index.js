@@ -33,46 +33,58 @@ let now = new Date();
 currentTime.innerHTML = formatDate(currentTime);
 
 // 🕵️‍♀️
-function search(event) {
-  event.preventDefault();
 
-  let citySearch = document.querySelector("#city-input").value;
-
-  let apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}&units=${units}`;
+function citySearch(city) {
+  let apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrlCity).then(displayWeather);
 }
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  let city = document.querySelector("#city-input").value;
+  citySearch(city);
+}
+
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
+searchForm.addEventListener("submit", handleSubmit);
 
 // Displays Current Temperature
 function displayWeather(response) {
-    console.log(response);
+  console.log(response);
 
   document.querySelector("#current-city").innerHTML = response.data.name;
 
-  document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
 
-  document.querySelector("#temp").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("#temp").innerHTML = Math.round(
+    response.data.main.temp
+  );
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 
-  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
 }
 
 // Current Location Coordinates
-function currentLocation(position) {
-
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-
-  let apiUrlCoords = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+function searchCoords(position) {
+  let apiUrlCoords = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrlCoords).then(displayWeather);
 }
-let currentCityTemp = document.querySelector("#current-button");
-currentCityTemp.addEventListener("submit", currentLocation);
-navigator.geolocation.getCurrentPosition(currentLocation);
+
+function currentLocation(event) {
+  event.preventDefault();
+
+  navigator.geolocation.getCurrentPosition(searchCoords);
+}
+
+let currentCityButton = document.querySelector("#current-button");
+currentCityButton.addEventListener("click", currentLocation);
 
 // fix conversion functions to do the math
 // conversion functions
@@ -93,4 +105,4 @@ navigator.geolocation.getCurrentPosition(currentLocation);
 // let celsiusLink = document.querySelector("#celsius-link");
 // celsiusLink.addEventListener("click", convertToCelsius);
 
-
+citySearch("Scottsdale");
