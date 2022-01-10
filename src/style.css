@@ -16,6 +16,11 @@ h5 {
     font-weight: 600;
 }
 
+li {
+    list-style: none;
+    padding-bottom: 20px;
+}
+
 .search-bar {
     padding-bottom: 20px;
     font-family: 'Raleway', sans-serif;
