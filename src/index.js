@@ -44,9 +44,6 @@ function citySearch(event){
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", citySearch);
 
-// 🙀Bonus Feature
-// Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
-
 function convertToFahrenheit(event){
   event.preventDefault();
   let temperatureElement = document.querySelector("#temp");
@@ -64,3 +61,21 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
+
+
+// Current City 
+
+function getCurrent(){
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let units = "metric";
+  let apiKey = "d35a50b565e28ebd67bab25803db980c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(citySearch);
+};
+
+let currentCityTemp = document.querySelector("#current-button");
+currentCityTemp.addEventListener("submit", getCurrent);
+
+navigator.geolocation.getCurrentPosition(getCurrent);
