@@ -33,7 +33,6 @@ let now = new Date();
 currentTime.innerHTML = formatDate(currentTime);
 
 // 🕵️‍♀️
-
 function citySearch(city) {
   let apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
