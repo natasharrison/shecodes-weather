@@ -52,6 +52,7 @@ searchForm.addEventListener("submit", handleSubmit);
 // Displays Current Temperature
 function displayWeather(response) {
   console.log(response);
+  let iconElement = document.querySelector("#icon");
 
   document.querySelector("#current-city").innerHTML = response.data.name;
 
@@ -67,6 +68,11 @@ function displayWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
 }
 
 // Current Location Coordinates
