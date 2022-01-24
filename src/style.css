@@ -12,17 +12,10 @@ h1 {
     padding-top:  30px; 
 }
 
-h5 {
+h3 {
     font-weight: 600;
-}
-
-li {
-    list-style: none;
-    padding-bottom: 20px;
-}
-
-.container{
-    box-shadow: 5px 10px;
+    text-align: center;
+    padding-top:  30px; 
 }
 
 .search-bar {
@@ -33,7 +26,6 @@ li {
 .current-temp {
     border-width: thin;
     padding-bottom: 30px;
-    text-align: center;
 }
 
 .current-temp h5 {
