@@ -35,44 +35,37 @@ currentTime.innerHTML = formatDate(currentTime);
 // 🕵️‍♀️
 function citySearch(city) {
   let apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
   axios.get(apiUrlCity).then(displayWeather);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-
   let city = document.querySelector("#city-input").value;
   citySearch(city);
 }
-
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
 
 // Displays Current Temperature
 function displayWeather(response) {
   console.log(response);
   let iconElement = document.querySelector("#icon");
+  celsiusTemp = response.data.main.temp;
 
   document.querySelector("#current-city").innerHTML = response.data.name;
 
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
 
-  document.querySelector("#temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#temp").innerHTML = Math.round(celsiusTemp);
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  
+
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
 }
 
 // Current Location Coordinates
@@ -91,23 +84,35 @@ function currentLocation(event) {
 let currentCityButton = document.querySelector("#current-button");
 currentCityButton.addEventListener("click", currentLocation);
 
-// fix conversion functions to do the math
 // conversion functions
-// function convertToFahrenheit(event) {
-//   event.preventDefault();
-//   let ctoFahr = (temperature * (9/5)) + 32;
-//   currentTemp.innerHTML = `${ctoFahr}`;
-// };
+function displayFahrenheit(event){
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 
-// function convertToCelsius(event){
-//   event.preventDefault();
-//   temperatureElement.innerHTML = `${temperature.value}`;
-// }
+  let temperatureElement = document.querySelector("#temp");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
 
-// let fahrenheitLink = document.querySelector("#fahrenheit-link");
-// fahrenheitLink.addEventListener("click", convertToFahrenheit);
+function displayCelsius(event){
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
 
-// let celsiusLink = document.querySelector("#celsius-link");
-// celsiusLink.addEventListener("click", convertToCelsius);
+let celsiusTemp = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
 
 citySearch("Scottsdale");

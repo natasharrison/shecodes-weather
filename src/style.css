@@ -1,10 +1,4 @@
-
-/* this isn't working on the body + font weight isn't working */
 body {
-    font-family: 'Raleway', sans-serif;
-}
-
-h1, h2, h3, h5, p {
     font-family: 'Raleway', sans-serif;
 }
 
@@ -36,6 +30,15 @@ h3 {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.units .active {
+    color: black;
+    cursor: default;
+}
+
+.units .active {
+    text-decoration: none;
 }
 
 #icon {
