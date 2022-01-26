@@ -32,6 +32,14 @@ let currentTime = document.querySelector("#current-time");
 let now = new Date();
 currentTime.innerHTML = formatDate(currentTime);
 
+function formatDay(timestamp){
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 // 🕵️‍♀️
 function citySearch(city) {
   let apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
@@ -48,7 +56,7 @@ function handleSubmit(event) {
 function getForecast(coordinates){
  console.log(coordinates);
 
- let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon${coordinates.lon}&appid=${apiKey}&units=metric`;
+ let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
 
  console.log(apiUrlForecast);
 
@@ -120,23 +128,23 @@ function displayCelsius(event){
 // display forecast days
 function displayForecast(response){
   console.log(response.data);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Thrs", "Fri", "Sat", "Sun"];
   let forecastHTML =  `<div class="row">`;
 
-  days.forEach(function(day){
+  forecast.forEach(function(forecastDay, index){
+    if (index < 6) {
     forecastHTML = forecastHTML + `
     <div class="card col-2 shadow" id="forecast-card">
         <div class="card-body">
-              <h5 class="card-title">${day}</h5>
-              <p class="card-text">December 5</p>
-              <img src="images/sun.jpg" class="card-img" alt="sunny">
-              <p class="card-text" id="temp-max">75°F</p>
-              <p class="card-text" id="temp-min">75°F</p>
+              <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
+              <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42"/>
+              <p><span class="card-text" id="temp-max">${Math.round(forecastDay.temp.max)}°</span> |
+              <span class="card-text" id="temp-min">${Math.round(forecastDay.temp.min)}°</span></p>
         </div>
     </div>
 `;
-  })
+  }})
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
