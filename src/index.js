@@ -49,7 +49,7 @@ function displayWeather(response) {
   console.log(response);
   let iconElement = document.querySelector("#icon");
   celsiusTemp = response.data.main.temp;
-
+  
   document.querySelector("#current-city").innerHTML = response.data.name;
 
   document.querySelector("#description").innerHTML =
@@ -103,6 +103,31 @@ function displayCelsius(event){
   let temperatureElement = document.querySelector("#temp");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
+
+function displayForecast(){
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thrs", "Fri", "Sat", "Sun"];
+  let forecastHTML =  `<div class="row">`;
+
+  days.forEach(function(day){
+    forecastHTML = forecastHTML + `
+    <div class="card col-2 shadow" id="forecast-card">
+        <div class="card-body">
+              <h5 class="card-title">${day}</h5>
+              <p class="card-text">December 5</p>
+              <img src="images/sun.jpg" class="card-img" alt="sunny">
+              <p class="card-text" id="temp-max">75°F</p>
+              <p class="card-text" id="temp-min">75°F</p>
+        </div>
+    </div>
+`;
+  })
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
 
 let celsiusTemp = null;
 
