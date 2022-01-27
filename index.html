@@ -17,51 +17,53 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Weather Dashboard</h1>
-        </br>
-
-        <!-- current city search form -->
-        <div class="search-bar">
-            <form id="search-form">
-                <input type="text" id="city-input" placeholder="Paris">
-                <input type="submit" value="Search" id="search-button">
-                <input type="submit" value="Current Location" id="current-button">
-            </form>
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <h1>Weather Dashboard</h1>
         </div>
-        <!-- end of current city search form -->
 
-        <!-- Current Temperature -->
-        <div class="current-temp">
-            <div class="row">
-                <div class="card col-3 d-flex justify-content-center shadow">
+        <div class="row d-flex justify-content-center">
+            <!-- current city search form -->
+            <div class="search-bar">
+                <form id="search-form">
+                    <input type="text" id="city-input" placeholder="Paris">
+                    <input type="submit" value="Search" id="search-button">
+                    <input type="submit" value="Current Location" id="current-button">
+                </form>
+            </div>
+            <!-- end of current city search form -->
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="card col-4 d-flex shadow" id="weather-box">
+                <!-- Current Temperature -->
+                <div class="current-temp">
                     <h3 class="card-title" id="current-city"></h3>
-                    </p>
                     <p class="card-text" id="current-time"></p>
                     <p class="card-text" id="description"></p>
-                    <p><span class="card-text" id="temp"></span> <span class="units"><a href="#" id="celsius-link" class="active">°C</a> | <a href="#" id="fahrenheit-link" class="active">°F</a></span></p>
-                    <img src="" alt="Clear" id="icon" class="card-img">
+                    <img src="" alt="" id="icon" class="card-img">
+                    <p class="current-degree"><span class="card-text" id="temp"></span> °F</p>
                     <p>Humidity: <span id="humidity"></span>%</p>
-                    <p>Wind: <span id="wind"></span> km/h</p>
+                    <p>Wind: <span id="wind"></span> mph</p>
                 </div>
+                <!-- end of current temperature -->
             </div>
         </div>
-        <!-- end of current temperature -->
-
         <!-- Five Day Forecast -->
-        <div class="week-forecast" id="forecast">
-            <h2>5 Day Forecast</h2>
+        <div class="five-day" id="forecast">
             <!-- forecast populated using displayForecast function -->
-        </div>
         <!-- End of Five Day Forecast -->
+        </div>
 
-        <footer>
-            <p>Created by Natasha Harrison Murata | Jan 2022 | <a href="https://github.com/natasharrison/shecodes-weather">GitHub</a>
-                |
-                <a href="https://www.linkedin.com/in/natasharrison/">LinkedIn</a>
-            </p>
-        </footer>
-
+        <div class="row d-flex justify-content-center">
+            <footer>
+                <p>Created by Natasha Harrison Murata | 2022 | <a
+                        href="https://github.com/natasharrison/shecodes-weather">GitHub</a>
+                    |
+                    <a href="https://www.linkedin.com/in/natasharrison/">LinkedIn</a>
+                </p>
+            </footer>
+        </div>
     </div>
     <script src="src/index.js"></script>
 </body>

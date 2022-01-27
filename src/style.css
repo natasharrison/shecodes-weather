@@ -1,68 +1,68 @@
-body {
-    font-family: 'Raleway', sans-serif;
+.container-fluid {
+  text-align: center;
+  display: inline-block;
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  background: #709775;
 }
 
 h1 {
-    padding-top:  30px; 
-}
-
-h3 {
-    font-weight: 600;
-    text-align: center;
-    padding-top:  30px; 
+  padding-top: 30px;
 }
 
 .search-bar {
-    padding-bottom: 20px;
-    font-family: 'Raleway', sans-serif;
+  padding: 20px 0px 20px 0px;
+}
+
+#search-button, #current-button {
+    background: #415D43;
+    color: #fff;
+}
+
+#weather-box {
+color: #111D13;
 }
 
 .current-temp {
-    border-width: thin;
-    padding-bottom: 30px;
+  padding: 10px 0px 10px 0px;
 }
 
-.current-temp h5 {
-    padding-top: 20px;
-}
-
-.card-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.units .active {
-    color: black;
-    cursor: default;
-}
-
-.units .active {
-    text-decoration: none;
+#current-city {
+  font-weight: 600;
+  text-align: center;
+  padding-top: 30px;
 }
 
 #icon {
-    height: 120px;
-    width: 120px;
+  height: 120px;
+  width: 120px;
 }
 
-.forecast {
-    padding-bottom: 30px;
-}
-
-.forecast h5, p {
-    text-align: center;
+.current-degree {
+  font-weight: 600;
+  font-size: 24px;
 }
 
 #forecast-card {
-    text-align: center;
+    background: #A1CCA5;
+    margin: 10px 5px 5px 5px;
 }
 
 #temp-min {
-    color: grey;
+  color: grey;
 }
 
 footer {
-    text-align: center;
-    padding-top: 20px;
+  padding-top: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #ffff;
+}
+
+footer a:hover {
+  color: #415d43;
 }

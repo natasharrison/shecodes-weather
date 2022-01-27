@@ -1,5 +1,5 @@
 let apiKey = "d35a50b565e28ebd67bab25803db980c";
-let units = "metric";
+let units = "imperial";
 let currentCity = document.querySelector("#current-city");
 
 // ⏰
@@ -56,7 +56,7 @@ function handleSubmit(event) {
 function getForecast(coordinates){
  console.log(coordinates);
 
- let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+ let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
 
  console.log(apiUrlForecast);
 
@@ -105,58 +105,30 @@ function currentLocation(event) {
 let currentCityButton = document.querySelector("#current-button");
 currentCityButton.addEventListener("click", currentLocation);
 
-// conversion functions
-function displayFahrenheit(event){
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-
-  let temperatureElement = document.querySelector("#temp");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
-function displayCelsius(event){
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  
-  let temperatureElement = document.querySelector("#temp");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-}
-
 // display forecast days
 function displayForecast(response){
   console.log(response.data);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML =  `<div class="row">`;
+  let forecastHTML =  `<div class="row d-flex justify-content-center">`;
 
   forecast.forEach(function(forecastDay, index){
-    if (index < 6) {
+    if (index < 5) {
     forecastHTML = forecastHTML + `
-    <div class="card col-2 shadow" id="forecast-card">
+    <div class="card d-flex col-2 shadow" id="forecast-card">
         <div class="card-body">
               <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
               <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42"/>
               <p><span class="card-text" id="temp-max">${Math.round(forecastDay.temp.max)}°</span> |
               <span class="card-text" id="temp-min">${Math.round(forecastDay.temp.min)}°</span></p>
         </div>
-    </div>
+        </div>
 `;
   }})
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-let celsiusTemp = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsius);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
