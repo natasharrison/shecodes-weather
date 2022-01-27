@@ -5,11 +5,11 @@
   color: #fff;
   width: 100%;
   height: 100%;
-  background: #709775;
+  background-color: #709775;
 }
 
-h1 {
-  padding-top: 30px;
+.page-title {
+  font-weight: bold;
 }
 
 .search-bar {
@@ -27,10 +27,14 @@ color: #111D13;
 
 .current-temp {
   padding: 10px 0px 10px 0px;
+  font-weight: bold;
+  color: #415d43;
+
 }
 
 #current-city {
   font-weight: 600;
+  font-size: 35px;
   text-align: center;
   padding-top: 30px;
 }
@@ -42,12 +46,17 @@ color: #111D13;
 
 .current-degree {
   font-weight: 600;
-  font-size: 24px;
+  font-size: 35px;
 }
 
 #forecast-card {
     background: #A1CCA5;
     margin: 10px 5px 5px 5px;
+    font-weight: bold;
+}
+
+.card-title {
+  font-weight: bold;
 }
 
 #temp-min {
